@@ -8,7 +8,7 @@ function which_timer() {
     if(study_state == "work"){
         console.log("work")
         document.getElementById("text").innerHTML = "working";
-        start_timer(10*1000);
+        start_timer(25*60*1000);
         study_state = "break";
         if(stage<2){
             stage += 1;
@@ -16,7 +16,7 @@ function which_timer() {
     } else if(study_state == "break"){
         console.log("break")
         document.getElementById("text").innerHTML = "taking a break";
-        start_timer(20*1000);
+        start_timer(5*60*1000);
         study_state = "work";
     }
 };
@@ -42,13 +42,13 @@ function start_timer(countDownLength){
     document.getElementById("timer-display").innerHTML = ""
 
     if(hours > 0){
-        document.getElementById("timer-display").innerHTML += hours + "h "
+        document.getElementById("timer-display").innerHTML += hours + ":"
     }
     if(minutes > 0){
-        document.getElementById("timer-display").innerHTML += minutes + "m "
+        document.getElementById("timer-display").innerHTML += minutes + ":"
     }
     if(seconds > 0){
-        document.getElementById("timer-display").innerHTML += seconds + "s "
+        document.getElementById("timer-display").innerHTML += seconds
     }
 
     // If the count down is finished, write some text
