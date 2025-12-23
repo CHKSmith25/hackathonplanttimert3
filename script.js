@@ -48,7 +48,11 @@ function start_timer(countDownLength){
         document.getElementById("timer-display").innerHTML += minutes + ":"
     }
     if(seconds > 0){
+      if(seconds > 9){
         document.getElementById("timer-display").innerHTML += seconds
+      }else {
+        document.getElementById("timer-display").innerHTML += "0" + seconds
+      }
     }
 
     // If the count down is finished, write some text
