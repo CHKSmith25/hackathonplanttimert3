@@ -9,11 +9,15 @@
 /* body styles apply to the entire page */
 body {
     /* font-family sets the text style. If the first font isn't available, it tries the next one. */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #94827A;
 }
 
 .hero {
-    background-image: url("https://t4.ftcdn.net/jpg/15/70/94/65/240_F_1570946516_hiSwr6hRqZ18w4MS7yRvOtIB03rN5Xc7.jpg");
+    background-image: url("./banner.jpg");
     background-size: cover;
 }
 
