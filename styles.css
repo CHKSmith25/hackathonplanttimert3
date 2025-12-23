@@ -4,16 +4,11 @@
 }
 
 body {
-    /* font-family sets the text style. If the first font isn't available, it tries the next one. */
-    font-family: "Pixelify Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #94827A;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .hero {
-    background-image: url("./banner.jpg");
+    background-image: url("https://t4.ftcdn.net/jpg/15/70/94/65/240_F_1570946516_hiSwr6hRqZ18w4MS7yRvOtIB03rN5Xc7.jpg");
     background-size: cover;
 }
 
@@ -35,14 +30,3 @@ footer {
     margin-top: auto;
 }
 
-#plant-image {
-    width: 100px;
-    height: auto;
-    image-rendering: pixelated;
-    transition: opacity 0.5s ease-in-out;
-}
-
-#plant-container {
-    text-align: center;
-    padding: 20px;
-}

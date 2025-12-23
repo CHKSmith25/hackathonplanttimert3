@@ -67,13 +67,13 @@ function showPlant() {
     const plantImage = document.getElementById('plant-image');
     
     if (stage === 0) {
-        //plantImage.src = 'plant_images/Plant1_stage_0.png';
+        plantImage.src = 'plant_images/Plant1_stage_1.png';
         document.getElementById("image").innerHTML = "0"
     } else if (stage === 1) {
-        //plantImage.src = 'plant_images/Plant1_stage_1.png';
+        plantImage.src = 'plant_images/Plant1_stage_2.png';
         document.getElementById("image").innerHTML = "1"
     } else if (stage === 2) {
-        //plantImage.src = 'plant_images/Plant1_stage_2.png';
+        plantImage.src = 'plant_images/Plant1_stage_3.png';
         document.getElementById("image").innerHTML = "2"
     }
 };
