@@ -7,6 +7,25 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.hero {
+    background-image: url("https://t4.ftcdn.net/jpg/15/70/94/65/240_F_1570946516_hiSwr6hRqZ18w4MS7yRvOtIB03rN5Xc7.jpg");
+    background-size: cover;
+}
+
+#hero-title {
+    text-shadow: 2px 2px #000000;
+}
+
+#hero-slogan {
+    text-shadow: 1px 1px #000000;
+}
+
+#plant {
+    background-image: url("./hackathon-desk.jpg");
+    background-size: cover;
+}
+
+/* footer styles apply only to the <footer> element */
 footer {
     margin-top: auto;
 }

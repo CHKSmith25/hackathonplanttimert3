@@ -15,16 +15,4 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Welcome! This is your starting point.");
     });
   }
-});
-
-function growPlant(stage) {
-    const plantImage = document.getElementById('plant-image');
-    
-    if (stage === 0) {
-        plantImage.src = 'plant_images/Plant1_stage_0.png';
-    } else if (stage === 1) {
-        plantImage.src = 'plant_images/Plant1_stage_1.png';
-    } else if (stage === 2) {
-        plantImage.src = 'plant_images/Plant1_stage_2.png';
-    }
-}
+})
