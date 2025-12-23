@@ -1,12 +1,8 @@
-/* Custom Styles: This is where you write your own CSS to change how the page looks */
-
-/* :root is used to define global variables (colors, fonts, etc.) that you can reuse */
 :root {
     --primary-color: #0d6efd;
     --secondary-color: #6c757d;
 }
 
-/* body styles apply to the entire page */
 body {
     /* font-family sets the text style. If the first font isn't available, it tries the next one. */
     font-family: "Pixelify Sans", sans-serif;
@@ -36,7 +32,17 @@ body {
 
 /* footer styles apply only to the <footer> element */
 footer {
-    /* margin-top: auto helps push the footer to the bottom if there's little content */
     margin-top: auto;
 }
 
+#plant-image {
+    width: 100px;
+    height: auto;
+    image-rendering: pixelated;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#plant-container {
+    text-align: center;
+    padding: 20px;
+}
