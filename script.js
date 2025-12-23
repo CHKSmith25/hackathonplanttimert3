@@ -1,7 +1,10 @@
 // Custom JavaScript: This is where you add interactivity to your website
 
+function do_nothing(){}
+
 function which_timer() {
     console.log("which")
+    document.getElementById("start-button").onclick = null
     if(study_state == "work"){
         console.log("work")
         document.getElementById("text").innerHTML = "working";
@@ -57,6 +60,7 @@ function start_timer(countDownLength){
           document.getElementById("text").innerHTML = "Press start to start work timer";
         }
         showPlant()
+        document.getElementById("start-button").onclick = which_timer
 
     }
 
