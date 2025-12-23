@@ -5,8 +5,6 @@ let completedCycles = 0;
 const WORK_TIME = 25*60*1000
 const BREAK_TIME = 5*60*1000
 
-function do_nothing(){}
-
 function which_timer() {
     console.log("which")
     document.getElementById("start-button").onclick = null
