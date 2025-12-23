@@ -2,13 +2,18 @@
 
 // NEW: Counter to track completed timer cycles
 let completedCycles = 0;
+const WORK_TIME = 25*60*1000
+const BREAK_TIME = 5*60*1000
+
+function do_nothing(){}
 
 function which_timer() {
     console.log("which")
+    document.getElementById("start-button").onclick = null
     if(study_state == "work"){
         console.log("work")
         document.getElementById("text").innerHTML = "working";
-        start_timer(10*1000);
+        start_timer(WORK_TIME);
         study_state = "break";
         if(stage<2){
             stage += 1;
@@ -16,7 +21,7 @@ function which_timer() {
     } else if(study_state == "break"){
         console.log("break")
         document.getElementById("text").innerHTML = "taking a break";
-        start_timer(20*1000);
+        start_timer(BREAK_TIME);
         study_state = "work";
     }
 };
@@ -42,13 +47,21 @@ function start_timer(countDownLength){
     document.getElementById("timer-display").innerHTML = ""
 
     if(hours > 0){
-        document.getElementById("timer-display").innerHTML += hours + "h "
+        document.getElementById("timer-display").innerHTML += hours + ":"
     }
-    if(minutes > 0){
-        document.getElementById("timer-display").innerHTML += minutes + "m "
+    if(minutes > -1){
+        if(minutes > 9){
+        document.getElementById("timer-display").innerHTML += minutes + ":"
+      }else {
+        document.getElementById("timer-display").innerHTML += "0" + minutes + ":"
+      }
     }
-    if(seconds > 0){
-        document.getElementById("timer-display").innerHTML += seconds + "s "
+    if(seconds > -1){
+      if(seconds > 9){
+        document.getElementById("timer-display").innerHTML += seconds
+      }else {
+        document.getElementById("timer-display").innerHTML += "0" + seconds
+      }
     }
 
     // If the count down is finished, write some text
@@ -76,6 +89,7 @@ function start_timer(countDownLength){
           document.getElementById("text").innerHTML = "Press start to start work timer";
         }
         showPlant()
+        document.getElementById("start-button").onclick = which_timer
 
     }
 
@@ -146,6 +160,7 @@ console.log("doing this");
 let countDownTime = new Date().getTime() + (60 * 1000);
 let study_state = "work";
 let stage = 0;
+console.log("state: "+ study_state)
 
 // this event listener waits for the entire HTML page to load before running any code
 document.addEventListener("DOMContentLoaded", function () {
