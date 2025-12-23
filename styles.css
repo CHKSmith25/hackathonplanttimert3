@@ -48,8 +48,18 @@ footer {
     padding: 20px;
 }
 
+#plant .card-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
 #timer-display {
     text-shadow: 1px 1px #000000;
-    font-size: 30px;
+    font-size: 60px;
+    color:#ffffff;
+}
+
+#text {
     color:#ffffff;
 }
