@@ -36,22 +36,26 @@ function start_timer(countDownLength){
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("timer").innerHTML = ""
+    document.getElementById("timer-display").innerHTML = ""
 
     if(hours > 0){
-        document.getElementById("timer").innerHTML += hours + "h "
+        document.getElementById("timer-display").innerHTML += hours + "h "
     }
     if(minutes > 0){
-        document.getElementById("timer").innerHTML += minutes + "m "
+        document.getElementById("timer-display").innerHTML += minutes + "m "
     }
     if(seconds > 0){
-        document.getElementById("timer").innerHTML += seconds + "s "
+        document.getElementById("timer-display").innerHTML += seconds + "s "
     }
 
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("timer").innerHTML = "Press start to start your next timer";
+        if(study_state == "break"){
+          document.getElementById("text").innerHTML = "Press start to take a break";
+        } else if (study_state == "work"){
+          document.getElementById("text").innerHTML = "Press start to start work timer";
+        }
         showPlant()
 
     }

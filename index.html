@@ -41,11 +41,8 @@
             </li>
           </ul>
         </div>
-        
-        <div id="timer-display">25:00</div>
-        
-        <button id="start-button">Start</button>
-    </div>
+      </div>
+    </nav>
 
     <!-- Hero Section: A large, prominent section at the top of the page -->
     <section class="hero bg-primary text-white text-center py-4">
@@ -59,15 +56,12 @@
 
     <!-- Main Content: The primary information on your page -->
     <main class="py-5">
-      <div class="container-fluid p-5">
+      <div class="container-fluid p-5 d-flex justify-content-center">
         <div class="row g-4">
+          <p id="text"></p>
           <div class="col-md-4">
-            <div class="shadow card">
-              <div class="card-body">
-                <p id="text" class="text-center"></p>
-                <h5 id="timer" class="text-center"></h5>
-              </div>
-            </div>
+            <h3 id="timer-display"></h3>
+            <button id="start-button" onclick="which_timer()">Start</button>
           </div>
         </div>
       </div>
@@ -79,7 +73,6 @@
               <div class="card-body">
                 <p id="image"></p>
               </div>
-              <button onclick="which_timer()">Start timer</button>
             </div>
           </div>
       </div>
