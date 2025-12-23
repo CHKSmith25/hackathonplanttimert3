@@ -27,10 +27,9 @@ function start_timer(countDownLength){
     // Update the count down every 1 second
     let x = setInterval(function() {
 
-    // Get today's date and time
     let now = new Date().getTime();
 
-    // Find the distance between now and the count down date
+    // Find the distance between now and the count down time
     let distance = countDownTime - now;
 
     // Time calculations for hours, minutes and seconds
