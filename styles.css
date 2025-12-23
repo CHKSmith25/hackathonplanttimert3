@@ -30,3 +30,14 @@ footer {
     margin-top: auto;
 }
 
+#image {
+    width: 100px;
+    height: auto;
+    image-rendering: pixelated;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#plant-container {
+    text-align: center;
+    padding: 20px;
+}
