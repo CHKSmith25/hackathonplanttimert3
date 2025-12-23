@@ -58,9 +58,10 @@
     <main class="py-5">
       <div class="container-fluid p-5 d-flex justify-content-center">
         <div class="row g-4">
+          <p id="text"></p>
           <div class="col-md-4">
-            <h3 id="timer-display">25:00</h3>
-            <button id="start-button">Start</button>
+            <h3 id="timer-display"></h3>
+            <button id="start-button" onclick="which_timer()">Start</button>
           </div>
         </div>
       </div>
@@ -69,6 +70,9 @@
       <div class="container">
           <div class="justify-content-center">
             <div id="plant" class="shadow card py-5 col-6 offset-3" style="height: 640px; width: 640px;">
+              <div class="card-body">
+                <img id="image"></img>
+              </div>
             </div>
           </div>
       </div>
