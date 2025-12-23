@@ -1,7 +1,5 @@
 // Set the date we're counting down to
-console.log("doing this")
-let countDownTime = new Date().getTime() + (60 * 1000);
-let study_state = "work";
+
 
 function which_timer() {
     console.log("which")
@@ -10,6 +8,9 @@ function which_timer() {
         document.getElementById("text").innerHTML = "working";
         start_timer(10*1000);
         study_state = "break";
+        if(stage<2){
+            stage += 1;
+        }
     } else if(study_state == "break"){
         console.log("break")
         document.getElementById("text").innerHTML = "taking a break";
@@ -53,8 +54,31 @@ function start_timer(countDownLength){
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("timer").innerHTML = "Press start to start your next timer";
+        showPlant()
 
     }
 
     }, 1000);
 }
+
+function showPlant() {
+    const plantImage = document.getElementById('plant-image');
+    
+    if (stage === 0) {
+        //plantImage.src = 'plant_images/Plant1_stage_0.png';
+        document.getElementById("image").innerHTML = "0"
+    } else if (stage === 1) {
+        //plantImage.src = 'plant_images/Plant1_stage_1.png';
+        document.getElementById("image").innerHTML = "1"
+    } else if (stage === 2) {
+        //plantImage.src = 'plant_images/Plant1_stage_2.png';
+        document.getElementById("image").innerHTML = "2"
+    }
+}
+
+console.log("doing this")
+let countDownTime = new Date().getTime() + (60 * 1000);
+let study_state = "work";
+let stage = 0;
+showPlant();
+// hi
