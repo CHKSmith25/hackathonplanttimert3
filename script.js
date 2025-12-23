@@ -47,10 +47,14 @@ function start_timer(countDownLength){
     if(hours > 0){
         document.getElementById("timer-display").innerHTML += hours + ":"
     }
-    if(minutes > 0){
+    if(minutes > -1){
+        if(minutes > 9){
         document.getElementById("timer-display").innerHTML += minutes + ":"
+      }else {
+        document.getElementById("timer-display").innerHTML += "0" + minutes + ":"
+      }
     }
-    if(seconds > 0){
+    if(seconds > -1){
       if(seconds > 9){
         document.getElementById("timer-display").innerHTML += seconds
       }else {
