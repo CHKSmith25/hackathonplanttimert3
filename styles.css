@@ -1,13 +1,12 @@
 :root {
-    --primary-color: #0d6efd;
+    --primary-color: #ffffff;
     --secondary-color: #6c757d;
 }
 
 body {
     /* font-family sets the text style. If the first font isn't available, it tries the next one. */
-    font-family: "Pixelify Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    font-family: "VT323", monospace;
+    font-weight: 550;
     font-style: normal;
     background-color: #94827A;
 }
@@ -19,10 +18,12 @@ body {
 
 #hero-title {
     text-shadow: 2px 2px #000000;
+    font-size: 80px;
 }
 
 #hero-slogan {
     text-shadow: 1px 1px #000000;
+    font-size: 30px;
 }
 
 #plant {
