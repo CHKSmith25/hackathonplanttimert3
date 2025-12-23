@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap" rel="stylesheet">
 
   </head>
   <body>
@@ -49,10 +49,33 @@
         <h1 id="hero-title" class="display-4 fw-bold">Pomodoro Plant</h1>
         <p id="hero-slogan" class="lead">Nurture your plant | Nurture your time</p>
         <!-- id="cta-button" allows us to find this button in script.js -->
-        <button class="btn btn-light btn-lg" id="cta-button">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#instructionsModal" 
+        style="background-color:white; color: black; border-color: black;">
           Instructions
         </button>
     </section>
+
+    <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">The Pomodoro Technique</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            The pomodoro technique a time-management tool which splits your working time into 25 minute intervals, called "pomodoros",
+            with 5 minute breaks in between. After 3 pomodoros you then take a longer 30 minute break before starting the process again.
+            <br>
+            <br>
+            Click the start button to set your timer and after each successful pomodoro, you'll see your desk plant grow.
+            Once your plant has grown, you've completed your work intervals and can start again after a well deserved break!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Main Content: The primary information on your page -->
     <main class="py-5">
