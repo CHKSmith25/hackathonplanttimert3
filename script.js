@@ -1,5 +1,8 @@
 // Custom JavaScript: This is where you add interactivity to your website
 
+// NEW: Counter to track completed timer cycles
+let completedCycles = 0;
+
 function which_timer() {
     console.log("which")
     if(study_state == "work"){
@@ -51,6 +54,22 @@ function start_timer(countDownLength){
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
+        
+        // NEW: Increment completed cycles counter
+        completedCycles++;
+        console.log(`Completed cycles: ${completedCycles}`);
+        
+        // NEW: Enable the "Add to Window Sill" button after 2 cycles
+        if (completedCycles >= 3) {
+            const collectionButton = document.getElementById("collection-button");
+            if (collectionButton) {
+                collectionButton.disabled = false;
+                collectionButton.style.opacity = '1';
+                collectionButton.style.cursor = 'pointer';
+                console.log("Collection button enabled!");
+            }
+        }
+        
         if(study_state == "break"){
           document.getElementById("text").innerHTML = "Press start to take a break";
         } else if (study_state == "work"){
@@ -67,16 +86,60 @@ function showPlant() {
     const plantImage = document.getElementById('image');
     
     if (stage === 0) {
-        plantImage.src = 'plant_images/Plant1_stage_0.png';
+        plantImage.src = 'plant_images/Plant1_stage_1.png';
         // document.getElementById("image").innerHTML = "0"
     } else if (stage === 1) {
-        plantImage.src = 'plant_images/Plant1_stage_1.png';
+        plantImage.src = 'plant_images/Plant1_stage_2.png';
         // document.getElementById("image").innerHTML = "1"
     } else if (stage === 2) {
-        plantImage.src = 'plant_images/Plant1_stage_2.png';
+        plantImage.src = 'plant_images/Plant1_stage_3.png';
         // document.getElementById("image").innerHTML = "2"
     }
 };
+
+
+let imageCounter = 1;
+const maxImages = 4; 
+
+
+function addNextImage() {
+  const plantContainer = document.querySelector('#plant .card-body');
+  
+
+  if (imageCounter <= maxImages) {
+
+    const img = document.createElement('img');
+    
+
+    img.src = `plant_final/${imageCounter}.png`;
+    
+
+    img.style.width = '50px';
+    img.style.height = 'auto';
+    img.style.margin = '10px';
+    img.style.marginBottom = '290px';
+    img.style.display = 'inline-block';
+    img.style.imageRendering = 'pixelated';
+    img.style.transition = 'opacity 0.5s ease-in-out';
+    img.style.verticalAlign = 'bottom';
+    
+
+    plantContainer.appendChild(img);
+    
+    imageCounter++;
+    
+    console.log(`Added image ${imageCounter - 1}`);
+  }
+}
+
+
+//clear the plants
+function resetImages() {
+  imageCounter = 1;
+  const plantContainer = document.querySelector('#plant .card-body');
+  plantContainer.innerHTML = '';
+  console.log('Images reset');
+}
 
 
 console.log("doing this");
@@ -84,14 +147,14 @@ let countDownTime = new Date().getTime() + (60 * 1000);
 let study_state = "work";
 let stage = 0;
 
-// This event listener waits for the entire HTML page to load before running any code
+// this event listener waits for the entire HTML page to load before running any code
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Page loaded!");
 
   
   showPlant();
 
-  // We find the button using its unique ID from the HTML
+
   const ctaButton = document.getElementById("cta-button");
 
   // Check if the button exists on the page before adding an event listener
@@ -99,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // This function runs whenever the button is clicked
     ctaButton.addEventListener("click", function () {
       console.log("CTA button clicked");
-      alert("Instructions: ..........");
+      alert("wassup");
     });
   }
-})
+});

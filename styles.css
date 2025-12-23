@@ -46,3 +46,10 @@ footer {
     text-align: center;
     padding: 20px;
 }
+
+#plant .card-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}

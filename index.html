@@ -61,7 +61,11 @@
           <p id="text"></p>
           <div class="col-md-4">
             <h3 id="timer-display"></h3>
-            <button id="start-button" onclick="which_timer()">Start</button>
+              <div class="d-flex flex-column align-items-center gap-2">
+                <button id="start-button" style="width: 250px;" onclick="which_timer()">Start</button>
+                <button id="collection-button" style="width: 250px; opacity: 0.5; cursor: not-allowed;" onclick="addNextImage()" disabled>Add to Window Sill</button>
+                <button id="reset-button" style="width: 250px;" onclick="resetImages()">Reset Collection</button>
+              </div>
           </div>
         </div>
       </div>
