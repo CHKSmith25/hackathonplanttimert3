@@ -45,7 +45,7 @@
     </nav>
 
     <!-- Hero Section: A large, prominent section at the top of the page -->
-    <section class="hero bg-primary text-white text-center py-4">
+    <section class="hero bg-primary text-white text-center py-2">
         <h1 id="hero-title" class="display-4 fw-bold">Pomodoro Plant</h1>
         <p id="hero-slogan" class="lead">Nurture your plant | Nurture your time</p>
         <!-- id="cta-button" allows us to find this button in script.js -->
@@ -68,7 +68,8 @@
             <br>
             <br>
             Click the start button to set your timer and after each successful pomodoro, you'll see your desk plant grow.
-            Once your plant has grown, you've completed your work intervals and can start again after a well deserved break!
+            Once you've completed 2 successful pomodoros, your plant will have fully grown and you'll be able to add it 
+            to your window sill. After this, enjoy the view and a nice break, and then start growing your next plant!
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -78,17 +79,19 @@
     </div>
 
     <!-- Main Content: The primary information on your page -->
-    <main class="py-5">
-      <div class="col-12 d-flex justify-content-center">
+    <main class="py-2">
+      <div class="d-flex justify-content-center">
           <p id="text"></p>
       </div>
-      <div class="container-fluid p-5 d-flex justify-content-center">
+      <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="row g-4">
           <div class="col-md-4">
-            <h3 id="timer-display"></h3>
-            <button id="start-button" onclick="which_timer()">Start</button>
+            <h1 id="timer-display"></h1>
           </div>
         </div>
+      </div>
+      <div class="container-fluid py-2 d-flex justify-content-center">
+        <button id="start-button" onclick="which_timer()">Start</button>
       </div>
       
       <!--Plant Growing Image-->
