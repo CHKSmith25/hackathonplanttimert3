@@ -1,5 +1,8 @@
 // Custom JavaScript: This is where you add interactivity to your website
 
+const WORK_TIME = 25*60*1000
+const BREAK_TIME = 5*60*1000
+
 function do_nothing(){}
 
 function which_timer() {
@@ -8,7 +11,7 @@ function which_timer() {
     if(study_state == "work"){
         console.log("work")
         document.getElementById("text").innerHTML = "working";
-        start_timer(25*60*1000);
+        start_timer(WORK_TIME);
         study_state = "break";
         if(stage<2){
             stage += 1;
@@ -16,7 +19,7 @@ function which_timer() {
     } else if(study_state == "break"){
         console.log("break")
         document.getElementById("text").innerHTML = "taking a break";
-        start_timer(5*60*1000);
+        start_timer(BREAK_TIME);
         study_state = "work";
     }
 };
