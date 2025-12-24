@@ -2,8 +2,9 @@
 
 // NEW: Counter to track completed timer cycles
 let completedCycles = 0;
-const WORK_TIME = 25*60*1000
-const BREAK_TIME = 5*60*1000
+let collectionUsedThisCycle = false;
+const WORK_TIME = 5*1000
+const BREAK_TIME = 5*1000
 
 function do_nothing(){}
 
@@ -64,34 +65,42 @@ function start_timer(countDownLength){
       }
     }
 
-    // If the count down is finished, write some text
+    // if the count down is finished, write some text
     if (distance < 0) {
-        clearInterval(x);
-        
-        // NEW: Increment completed cycles counter
-        completedCycles++;
-        console.log(`Completed cycles: ${completedCycles}`);
-        
-        // NEW: Enable the "Add to Window Sill" button after 2 cycles
-        if (completedCycles >= 3) {
-            const collectionButton = document.getElementById("collection-button");
-            if (collectionButton) {
-                collectionButton.disabled = false;
-                collectionButton.style.opacity = '1';
-                collectionButton.style.cursor = 'pointer';
-                console.log("Collection button enabled!");
-            }
-        }
-        
-        if(study_state == "break"){
-          document.getElementById("text").innerHTML = "Press start to take a break";
-        } else if (study_state == "work"){
-          document.getElementById("text").innerHTML = "Press start to start work timer";
-        }
-        showPlant()
-        document.getElementById("start-button").onclick = which_timer
+    clearInterval(x);
 
+    completedCycles++;
+    console.log(`Completed ccles: ${completedCycles}`);
+
+    const collectionButton = document.getElementById("collection-button");
+    const unlockCycles = [3, 7, 11, 15];
+
+    if (collectionButton) {
+        if (unlockCycles.includes(completedCycles)) {
+            collectionUsedThisCycle = false; 
+
+            collectionButton.disabled = false;
+            collectionButton.style.opacity = '1';
+            collectionButton.style.cursor = 'pointer';
+            console.log("Collection button unlocked for this cycle");
+        } else {
+            collectionButton.disabled = true;
+            collectionButton.style.opacity = '0.5';
+            collectionButton.style.cursor = 'not-allowed';
+        }
     }
+
+
+    if (study_state === "break") {
+        document.getElementById("text").innerHTML = "Press start to take a break";
+    } else if (study_state === "work") {
+        document.getElementById("text").innerHTML = "Press start to start work timer";
+    }
+
+    showPlant();
+    document.getElementById("start-button").onclick = which_timer;
+}
+
 
     }, 1000);
 };
@@ -166,18 +175,54 @@ console.log("state: "+ study_state)
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Page loaded!");
 
-  
   showPlant();
 
-
   const ctaButton = document.getElementById("cta-button");
-
-  // Check if the button exists on the page before adding an event listener
   if (ctaButton) {
-    // This function runs whenever the button is clicked
     ctaButton.addEventListener("click", function () {
       console.log("CTA button clicked");
       alert("wassup");
     });
   }
+
+  // mute button 
+  const music = document.getElementById("bg-music");
+  const muteBtn = document.getElementById("mute-btn");
+
+  if (music && muteBtn) {
+    document.addEventListener("click", () => {
+      if (music.paused) {
+        music.volume = 0.4;
+        music.play().catch(() => {});
+      }
+    }, { once: true });
+
+    muteBtn.addEventListener("click", () => {
+      music.muted = !music.muted;
+      muteBtn.textContent = music.muted ? "♫" : "⊘";
+    });
+  }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const collectionButton = document.getElementById("collection-button");
+
+    if (collectionButton) {
+        collectionButton.onclick = () => {
+            if (collectionUsedThisCycle) return;
+
+            // adds the plant to background
+            addNextImage();
+
+            // disables button until next 4 cycles
+            collectionUsedThisCycle = true;
+            collectionButton.disabled = true;
+            collectionButton.style.opacity = '0.5';
+            collectionButton.style.cursor = 'not-allowed';
+
+            console.log("Plant added, button locked");
+        };
+    }
+});
+
+

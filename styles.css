@@ -63,3 +63,17 @@ footer {
 #text {
     color:#ffffff;
 }
+
+#mute-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: rgba(0,0,0,0.6);
+  color: white;
+}
