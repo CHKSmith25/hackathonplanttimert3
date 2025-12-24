@@ -14,7 +14,7 @@ function which_timer() {
         document.getElementById("text").innerHTML = "working";
         start_timer(WORK_TIME);
         study_state = "break";
-        if(stage<2){
+        if(stage<5){
             stage += 1;
         }
     } else if(study_state == "break"){
@@ -22,6 +22,9 @@ function which_timer() {
         document.getElementById("text").innerHTML = "taking a break";
         start_timer(BREAK_TIME);
         study_state = "work";
+        if(stage>=5){
+          stage=0
+        }
     }
 };
 
@@ -68,10 +71,10 @@ function start_timer(countDownLength){
     clearInterval(x);
 
     completedCycles++;
-    console.log(`Completed ccles: ${completedCycles}`);
+    console.log(`Completed cycles: ${completedCycles}`);
 
     const collectionButton = document.getElementById("collection-button");
-    const unlockCycles = [3, 7, 11, 15];
+    const unlockCycles = [3, 9, 13, 17];
 
     if (collectionButton) {
         if (unlockCycles.includes(completedCycles)) {
@@ -88,14 +91,17 @@ function start_timer(countDownLength){
         }
     }
 
-
+    document.getElementById("timer-display").innerHTML = "00:00"
     if (study_state === "break") {
         document.getElementById("text").innerHTML = "Press start to take a break";
     } else if (study_state === "work") {
         document.getElementById("text").innerHTML = "Press start to start work timer";
     }
 
-    showPlant();
+    if(study_state=="break"){
+      showPlant();
+    };
+    
     document.getElementById("start-button").onclick = which_timer;
 }
 
@@ -108,13 +114,16 @@ function showPlant() {
     
     if (stage === 0) {
         plantImage.src = 'plant_images/Plant1_stage_1.png';
-        // document.getElementById("image").innerHTML = "0"
     } else if (stage === 1) {
         plantImage.src = 'plant_images/Plant1_stage_2.png';
-        // document.getElementById("image").innerHTML = "1"
     } else if (stage === 2) {
         plantImage.src = 'plant_images/Plant1_stage_3.png';
-        // document.getElementById("image").innerHTML = "2"
+    }else if (stage === 3) {
+        plantImage.src = 'plant_images/Plant1_stage_4.png';
+    } else if (stage === 4) {
+        plantImage.src = 'plant_images/Plant1_stage_5.png';
+    }else if (stage === 5) {
+        plantImage.src = 'plant_images/Plant1_stage_6.png';
     }
 };
 
@@ -150,6 +159,8 @@ function addNextImage() {
     imageCounter++;
     
     console.log(`Added image ${imageCounter - 1}`);
+
+    document.getElementById("image").src = "";
   }
 }
 
