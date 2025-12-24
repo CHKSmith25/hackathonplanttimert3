@@ -6,8 +6,6 @@ let collectionUsedThisCycle = false;
 const WORK_TIME = 5*1000
 const BREAK_TIME = 5*1000
 
-function do_nothing(){}
-
 function which_timer() {
     console.log("which")
     document.getElementById("start-button").onclick = null

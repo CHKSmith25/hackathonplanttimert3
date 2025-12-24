@@ -85,9 +85,11 @@
 
     <!-- Main Content: The primary information on your page -->
     <main class="py-2">
+
       <div class="d-flex justify-content-center">
           <p id="text"></p>
       </div>
+
       <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="row g-4">
           <div class="col-md-4">
@@ -95,11 +97,18 @@
           </div>
         </div>
       </div>
+
       <div class="container-fluid py-2 d-flex justify-content-center">
-        <div class="d-flex flex-column align-items-center gap-2">
-          <button id="start-button" style="width: 250px;" onclick="which_timer()">Start</button>
-          <button id="collection-button" style="width: 250px; opacity: 0.5; cursor: not-allowed;" onclick="addNextImage()" disabled>Add to Window Sill</button>
-          <button id="reset-button" style="width: 250px;" onclick="resetImages()">Reset Collection</button>
+        <div class="row g-4">
+          <div class="col-md-4 d-flex flex-column align-items-center gap-2">
+            <button id="start-button" style="width: 190px;" onclick="which_timer()">Start</button>
+          </div>
+          <div class="col-md-4 d-flex flex-column align-items-center gap-2">
+            <button id="collection-button" style="width: 190px; opacity: 0.5; cursor: not-allowed;" onclick="addNextImage()" disabled>Add to Window Sill</button>
+          </div>
+          <div class="col-md-4 d-flex flex-column align-items-center gap-2">
+            <button id="reset-button" style="width: 190px;" onclick="resetImages()">Reset Collection</button>
+          </div>
         </div>
       </div>
       
@@ -119,7 +128,7 @@
     <!-- Footer: Information at the bottom of the page -->
     <footer class="bg-dark text-white text-center py-4 mt-5">
       <div class="container">
-        <p>&copy; 2025 Hackathon Starter. All rights reserved.</p>
+        <p>&copy; 2025 Plant Timer. All rights reserved.</p>
       </div>
     </footer>
 
